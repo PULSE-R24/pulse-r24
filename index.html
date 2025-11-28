@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbly Pink Theme</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff66b2, #ff99cc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        .bubble-btn {
+            display: inline-block;
+            background-color: #ff66b2;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border-radius: 30px;
+            margin-top: 30px;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .bubble-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff3385;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: bubbleAnimation 6s infinite;
+        }
+
+        @keyframes bubbleAnimation {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                transform: scale(1.5) translateY(-500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Bubbly Pink World!</h1>
+    <p>Everything is pink, fluffy, and bubbly here. Dive into the fun!</p>
+    <a href="#" class="bubble-btn">Click Me!</a>
+
+    <!-- Adding bubbles effect -->
+    <div class="bubble" style="width: 80px; height: 80px; left: 10%;"></div>
+    <div class="bubble" style="width: 100px; height: 100px; left: 40%;"></div>
+    <div class="bubble" style="width: 120px; height: 120px; left: 70%;"></div>
+</body>
+</html>

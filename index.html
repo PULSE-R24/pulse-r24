@@ -1,43 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulse R24 - News Blog</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE-R Server Watch</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Section with Hamburger Menu -->
-  <header>
-    <div class="menu-icon" id="hamburger-menu">
-      <img src="assets/icons/menu-icon.png" alt="Menu">
-    </div>
-    <div class="logo-container">
-      <img src="assets/images/logo.png" alt="Logo" class="logo">
-    </div>
-  </header>
 
-  <!-- Sidebar for months and dates (Hidden by default) -->
-  <div class="sidebar" id="sidebar">
-    <ul id="months-list">
-      <!-- Months and dates will be populated dynamically -->
-    </ul>
-  </div>
+<!-- TOP HEADER - HAMBURGER LEFT -->
+<!-- TOP HEADER - HAMBURGER LEFT -->
+<!-- TOP HEADER -->
+<header class="top-header">
+    <div class="menu-icon" id="menuToggle">☰</div>
 
-  <!-- Main Content for Today's Blog -->
-  <div class="main-content">
-    <div class="blog-area" id="today-blog">
-      <!-- Today's blog will be inserted here -->
+    <div class="rru-title">
+        <div class="rru-main">RASHTRIYA RAKSHA UNIVERSITY</div>
+        <div class="rru-sub">
+	(Puducherry)
+        </div>
     </div>
-  </div>
+</header>
 
-  <!-- Footer Section -->
-  <footer>
-    <div class="footer-content">
-      <!-- Footer Content (e.g., social media links) -->
+<!-- SIDEBAR -->
+<aside id="sidebar">
+    <div class="sidebar-header">
+        <span class="sidebar-title">📅 Months</span>
+        <span class="closebtn" id="closeSidebar">✖</span>
     </div>
-  </footer>
+    <div class="month-container">
+        <div class="month-item" data-month="jan">January</div>
+        <div class="calendar-grid" id="jan"></div>
 
-  <script src="script.js"></script>
+        <div class="month-item" data-month="feb">February</div>
+        <div class="calendar-grid" id="feb"></div>
+
+        <div class="month-item" data-month="mar">March</div>
+        <div class="calendar-grid" id="mar"></div>
+
+        <div class="month-item" data-month="apr">April</div>
+        <div class="calendar-grid" id="apr"></div>
+
+        <div class="month-item" data-month="may">May</div>
+        <div class="calendar-grid" id="may"></div>
+
+        <div class="month-item" data-month="jun">June</div>
+        <div class="calendar-grid" id="jun"></div>
+
+        <div class="month-item" data-month="jul">July</div>
+        <div class="calendar-grid" id="jul"></div>
+
+        <div class="month-item" data-month="aug">August</div>
+        <div class="calendar-grid" id="aug"></div>
+
+        <div class="month-item" data-month="sep">September</div>
+        <div class="calendar-grid" id="sep"></div>
+
+        <div class="month-item" data-month="oct">October</div>
+        <div class="calendar-grid" id="oct"></div>
+
+        <div class="month-item" data-month="nov">November</div>
+        <div class="calendar-grid" id="nov"></div>
+
+        <div class="month-item" data-month="dec">December</div>
+        <div class="calendar-grid" id="dec"></div>
+    </div>
+    <div class="back-today" id="backToday">⟲ Back Today</div>
+</aside>
+
+<!-- OVERLAY -->
+<div id="overlay"></div>
+
+<main>
+    <!-- SINGLE MAIN CARD: 7 DAYS + BLOG (RIGHT SIDE) -->
+    <section class="week-section" id="weekSection">
+        <div class="week-header">
+            <h2>🖥️ Last 7 Days – Server News</h2>
+            <button id="backTodayBtn" class="reset-week-btn">Back Today</button>
+        </div>
+        <div class="week-container">
+            <!-- LEFT: 7-DAY LIST -->
+            <ul class="day-list" id="dayList">
+                <!-- JS will insert Day 1..Day 7 with real dates -->
+            </ul>
+            <!-- RIGHT: BLOG / DETAILS FOR SELECTED DAY -->
+            <div class="day-detail" id="dayDetail">
+                <!-- JS will load blogs/YYYY-MM-DD.html here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+        <div class="about-bg-container">
+            <div class="about-content">
+                <h2>🔒 About PULSE-R</h2>
+                <p>Real-time server monitoring and threat intelligence. Daily updates with full calendar archive.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Developed by Arun — PULSE-R Server Watch 2025</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

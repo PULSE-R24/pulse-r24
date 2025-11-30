@@ -1,82 +1,407 @@
-/* Global Styles */
+/* PULSE-R MOBILE-FIRST CSS - RED/BLUE/WHITE */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #111;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-header {
-  background-color: #020c45;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ===== TOP HEADER (MOBILE FIRST) ===== */
+/* ===== TOP HEADER (MOBILE FIRST) ===== */
+
+/* ===== TOP HEADER ===== */
+.top-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* blue full bar, red rising from bottom-right like footer */
+    background: linear-gradient(135deg, #0A1A44 0%, #1e3a8a 60%, #c1121f 100%);
+    color: white;
+    padding: 14px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 300;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-.menu-icon img {
-  width: 30px;
-  cursor: pointer;
+/* ===== RRU TITLE IN HEADER ===== */
+.rru-title {
+    flex: 1;
+    text-align: center;
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1.2;
 }
 
-.logo-container img {
-  width: 100px;
+.rru-main {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fefefe;
 }
 
-.main-content {
-  padding: 20px;
+.rru-sub {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.95;
+    color: #e5e9ff;
 }
 
+@media (max-width: 480px) {
+    .rru-main {
+        font-size: 14px;
+        letter-spacing: 1.5px;
+    }
+    .rru-sub {
+        font-size: 11px;
+    }
+}
+
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    touch-action: manipulation;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 401; /* above overlay edge */
+}
+
+.menu-icon:hover,
+.menu-icon:active {
+    background: rgba(255,255,255,0.15);
+}
+
+.site-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    flex: 1;
+}
+
+/* ===== SIDEBAR ===== */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    max-width: 280px;
+    background: #ffffff;
+    box-shadow: 4px 0 25px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    z-index: 400;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    background: linear-gradient(135deg, #0A1A44 0%, #1e3a8a 100%);
+    color: white;
+}
+
+.sidebar-title {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.closebtn {
+    font-size: 22px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+.closebtn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.month-container { padding: 0; }
+
+.month-item {
+    padding: 14px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.2s;
+    position: relative;
+    touch-action: manipulation;
+}
+
+.month-item:hover {
+    background: linear-gradient(90deg, #0A1A44, #1e3a8a);
+    color: white;
+}
+
+.calendar-grid {
+    display: none;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    margin: 0 4px 8px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #e9ecef;
+    touch-action: manipulation;
+}
+
+.calendar-day:hover {
+    background: #c1121f !important;
+    color: white !important;
+    transform: scale(1.04);
+}
+
+.day-header {
+    background: #dee2e6 !important;
+    color: #495057 !important;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.empty { background: transparent !important; }
+
+.back-today {
+    margin: 16px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #c1121f, #a1121f);
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+.back-today:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(193,18,31,0.4);
+}
+
+/* ===== OVERLAY ===== */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 350;
+}
+
+/* ===== MAIN (MOBILE FIRST) ===== */
+main {
+    padding: 16px 10px;
+    max-width: 420px;      /* Android-width container */
+    margin: 0 auto;
+}
+
+/* ===== WEEK SECTION (BLOG TOP, DAYS BELOW) ===== */
+.week-section {
+    width: 100%;
+    background: white;
+    border-radius: 18px;
+    padding: 18px 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    margin: 10px 0 18px;
+}
+
+/* header row hidden on mobile; optional on desktop via media query */
+.week-header {
+    display: none;
+}
+
+/* Back Today button in top-right of blog card */
+.reset-week-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, #c1121f, #a1121f);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    box-shadow: 0 4px 12px rgba(193,18,31,0.35);
+    touch-action: manipulation;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* BLOG FIRST, 7 DAYS BELOW (all viewports) */
+.week-container {
+    display: flex;
+    flex-direction: column-reverse;   /* blog on top, list below */
+    gap: 12px;
+}
+
+/* 7‑day list */
+.day-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: auto;
+}
+
+.day-item {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 140px;
+    padding: 12px 10px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    touch-action: manipulation;
+}
+
+.day-item:hover,
+.day-item.active {
+    background: linear-gradient(135deg, #0A1A44, #1e3a8a);
+    color: white;
+    border-color: #c1121f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(10,26,68,0.3);
+}
+
+/* blog card */
+.day-detail {
+    position: relative;
+    flex: 1;
+    background: #fafbfc;
+    border-radius: 12px;
+    padding: 30px 4px 8px;  /* extra top space for Back Today button */
+    border: 1px solid #e9ecef;
+    min-height: 220px;
+    font-size: 14px;
+}
+
+/* ===== ABOUT SECTION (MOBILE FIRST) ===== */
+.about-section {
+    margin-bottom: 24px;
+}
+
+.about-bg-container {
+    background: linear-gradient(135deg, #0A1A44 0%, #1e3a8a 50%, #c1121f 100%);
+    border-radius: 20px;
+    padding: 28px 18px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.about-content h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.about-content p {
+    font-size: 14px;
+    opacity: 0.95;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+/* ===== FOOTER ===== */
 footer {
-  background-color: #020c45;
-  color: white;
-  text-align: center;
-  padding: 10px 20px;
+    background: linear-gradient(135deg, #0A1A44 0%, #1e3a8a 100%);
+    color: white;
+    text-align: center;
+    padding: 18px 10px;
+    font-size: 13px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
 }
 
-/* Sidebar Styles */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px; /* Hidden by default */
-  width: 250px;
-  height: 100%;
-  background-color: #333;
-  overflow-y: auto;
-  transition: 0.3s;
-  padding-top: 60px;
-}
+/* ===== DESKTOP/TABLET UPGRADE ===== */
+@media (min-width: 768px) {
+    main {
+        max-width: 1100px;
+        padding: 24px 16px;
+    }
 
-.sidebar a {
-  padding: 8px 10px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-}
+    .top-header {
+        padding: 16px 20px;
+    }
 
-.sidebar a:hover {
-  background-color: #575757;
-}
+    .site-title {
+        font-size: 20px;
+    }
 
-.sidebar.open {
-  left: 0; /* When open, slide in from left */
-}
+    .week-section {
+        padding: 24px 20px;
+        margin: 20px 0;
+    }
 
-/* Styling for Today's Blog Area */
-.blog-area {
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 20px auto;
-}
+    .week-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+        text-align: left;
+    }
 
-/* Footer */
-footer {
-  background-color: #020c45;
-  color: white;
-  text-align: center;
-  padding: 10px 20px;
+    .week-header h2 {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    /* still blog top, 7 days below */
+    .week-container {
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+
+    .day-item {
+        flex: 0 0 auto;
+        min-width: 150px;
+    }
+
+    .day-detail {
+        padding: 30px 14px 14px;
+        font-size: 15px;
+    }
+
+    .about-bg-container {
+        padding: 40px 28px;
+    }
+
+    .about-content h2 {
+        font-size: 28px;
+    }
+
+    .about-content p {
+        font-size: 15px;
+        max-width: 600px;
+    }
 }
